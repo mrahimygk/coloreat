@@ -1,13 +1,13 @@
 package ir.mrahimy.circledots.config
 
 object Constants {
-    val GAME_W = 360
-    val GAME_H = 640
-    val WORLD_WIDTH = 225
-    val WORLD_HEIGHT = 400
+    val GAME_W = 640
+    val GAME_H = 360
+    val WORLD_WIDTH = 400
+    val WORLD_HEIGHT = 225
     val BALL_MAX_RADIUS = 50
     val BALL_MIN_RADIUS = 30
-    val ASPECT_RATIO = GAME_W.toFloat() / GAME_H.toFloat()
+    val ASPECT_RATIO = GAME_H.toFloat() / GAME_W.toFloat()
 
     val GAME_TITLE = "Xircle"
     val HudBoxMargin = 5f
