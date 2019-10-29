@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Circle
 import ir.mrahimy.circledots.manage.Assets
 
-class PointSprite(private val bounds: Circle) {
+class PointSprite(private val bounds: Circle, private val color: Color = Color.RED) {
     private val circleSprite = Sprite(Assets().pointTexture())
 
     init {
@@ -15,7 +15,7 @@ class PointSprite(private val bounds: Circle) {
                 bounds.x - circleSprite.texture.width / 2,
                 bounds.y - circleSprite.texture.height / 2)
 
-        circleSprite.color = Color.WHITE.cpy().lerp(Color.RED, .5f)
+        circleSprite.color = Color.WHITE.cpy().lerp(color, .5f)
     }
 
     fun render(batch: SpriteBatch, deltaTime: Float) {
