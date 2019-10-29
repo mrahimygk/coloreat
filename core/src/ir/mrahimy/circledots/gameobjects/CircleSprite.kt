@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Circle
 import ir.mrahimy.circledots.manage.Assets
 
-class CircleSprite(val bounds: Circle, private val color:Color=Color.BLUE) {
-    private val circleSprite = Sprite(Assets().xircleTexture())
+class CircleSprite(val bounds: Circle, private val color: Color = Color.BLUE) {
+    private val circleSprite = Sprite(Assets().circleTexture())
 
     init {
         circleSprite.setOriginCenter()
