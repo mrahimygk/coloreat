@@ -7,20 +7,20 @@ import com.badlogic.gdx.graphics.Texture
 class Assets {
 
     @Synchronized
-    public fun getInstance(): Assets {
+    fun getInstance(): Assets {
         if (instance == null) {
             instance = Assets()
         }
         return instance!!
     }
 
-    val manager = AssetManager()
+    private val manager = AssetManager()
 
     companion object {
         private var instance: Assets? = null
     }
 
-    var fullyLoaded = false
+    private var fullyLoaded = false
     private val FONTS_FOLDER = "fonts"
     private val textureFilesPath = "textures/"
 
@@ -30,6 +30,9 @@ class Assets {
 
     private val pointTextureDescriptor = AssetDescriptor(
             "$textureFilesPath/point.png", Texture::class.java)
+
+    private val lineTextureDescriptor = AssetDescriptor(
+            "$textureFilesPath/line.png", Texture::class.java)
 
 
     fun load(): Assets {
@@ -41,7 +44,7 @@ class Assets {
     }
 
 
-    fun xircleTexture(): Texture {
+    fun circleTexture(): Texture {
         //if (!fullyLoaded) throw RuntimeException("Could not load assets. tip: Assets.load()")
         manager.load(xircleTextureDescriptor)
         manager.finishLoading()
@@ -55,6 +58,12 @@ class Assets {
         return manager.get(pointTextureDescriptor)
     }
 
+    fun lineTexture(): Texture {
+        //if (!fullyLoaded) throw RuntimeException("Could not load assets. tip: Assets.load()")
+        manager.load(lineTextureDescriptor)
+        manager.finishLoading()
+        return manager.get(lineTextureDescriptor)
+    }
 
     fun dispose() {
         manager.dispose()
