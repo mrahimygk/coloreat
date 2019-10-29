@@ -10,13 +10,14 @@ import ir.mrahimy.circledots.Xircle
 import ir.mrahimy.circledots.config.Constants
 
 open class FitScreenImpl(private val game: Xircle,
-        private val clearColor: Color) : Screen {
+                         private val clearColor: Color) : Screen {
     val camera: OrthographicCamera = OrthographicCamera()
     val viewport: FitViewport
 
     companion object {
         val TAG = FitScreenImpl::class.java.simpleName
     }
+
     init {
         camera.setToOrtho(false, Constants.WORLD_WIDTH.toFloat(), Constants.WORLD_HEIGHT.toFloat())
         viewport = FitViewport(Constants.WORLD_WIDTH.toFloat(), Constants.WORLD_HEIGHT.toFloat(), camera)
