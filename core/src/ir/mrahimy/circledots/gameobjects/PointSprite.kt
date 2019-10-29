@@ -7,25 +7,25 @@ import com.badlogic.gdx.math.Circle
 import ir.mrahimy.circledots.manage.Assets
 
 class PointSprite(private val bounds: Circle, private val color: Color = Color.RED) {
-    private val circleSprite = Sprite(Assets().pointTexture())
+    private val pointSprite = Sprite(Assets().pointTexture())
 
     init {
-        circleSprite.setOriginCenter()
-        circleSprite.setPosition(
-                bounds.x - circleSprite.texture.width / 2,
-                bounds.y - circleSprite.texture.height / 2)
+        pointSprite.setOriginCenter()
+        pointSprite.setPosition(
+                bounds.x - pointSprite.texture.width / 2,
+                bounds.y - pointSprite.texture.height / 2)
 
-        circleSprite.color = Color.WHITE.cpy().lerp(color, .5f)
+        pointSprite.color = Color.WHITE.cpy().lerp(color, .5f)
     }
 
     fun render(batch: SpriteBatch, deltaTime: Float) {
-        val s = 1f / ((circleSprite.texture.width / 2) / bounds.radius)
-        circleSprite.setScale(s)
-        circleSprite.setScale(s)
-        circleSprite.setScale(s)
+        val s = 1f / ((pointSprite.texture.width / 2) / bounds.radius)
+        pointSprite.setScale(s)
+        pointSprite.setScale(s)
+        pointSprite.setScale(s)
 
         batch.begin()
-        circleSprite.draw(batch)
+        pointSprite.draw(batch)
         batch.end()
     }
 }
