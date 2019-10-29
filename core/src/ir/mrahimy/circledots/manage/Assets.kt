@@ -28,6 +28,9 @@ class Assets {
     private val xircleTextureDescriptor = AssetDescriptor(
             "$textureFilesPath/circle.png", Texture::class.java)
 
+    private val pointTextureDescriptor = AssetDescriptor(
+            "$textureFilesPath/point.png", Texture::class.java)
+
 
     fun load(): Assets {
         if (!fullyLoaded) {
@@ -43,6 +46,13 @@ class Assets {
         manager.load(xircleTextureDescriptor)
         manager.finishLoading()
         return manager.get(xircleTextureDescriptor)
+    }
+
+    fun pointTexture(): Texture {
+        //if (!fullyLoaded) throw RuntimeException("Could not load assets. tip: Assets.load()")
+        manager.load(pointTextureDescriptor)
+        manager.finishLoading()
+        return manager.get(pointTextureDescriptor)
     }
 
 
