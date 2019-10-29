@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Circle
 import ir.mrahimy.circledots.manage.Assets
 
-class ACircle(private val bounds: Circle) {
+class CircleSprite(val bounds: Circle) {
     private val circleSprite = Sprite(Assets().xircleTexture())
 
     init {
