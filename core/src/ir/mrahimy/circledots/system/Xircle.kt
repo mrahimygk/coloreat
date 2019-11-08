@@ -1,4 +1,4 @@
-package ir.mrahimy.circledots
+package ir.mrahimy.circledots.system
 
 import com.badlogic.gdx.Game
 import ir.mrahimy.circledots.screen.MainGameScreen
