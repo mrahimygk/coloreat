@@ -1,13 +1,14 @@
 package ir.mrahimy.circledots.gameobjects
 
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Circle
 import ir.mrahimy.circledots.manage.Assets
 
 class CircleSprite(val bounds: Circle, private val color: Color = Color.BLUE) {
-    private val circleSprite = Sprite(Assets().circleTexture())
+    private val circleSprite = Sprite(Assets().circleTexture().apply { setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear) })
 
     init {
         circleSprite.setOriginCenter()
