@@ -4,9 +4,10 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.InputMultiplexer
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
-import ir.mrahimy.circledots.GameWorld
-import ir.mrahimy.circledots.InputHandler
-import ir.mrahimy.circledots.Xircle
+import ir.mrahimy.circledots.system.GameRenderer
+import ir.mrahimy.circledots.system.GameWorld
+import ir.mrahimy.circledots.system.InputHandler
+import ir.mrahimy.circledots.system.Xircle
 
 class MainGameScreen(game: Xircle) : FitScreenImpl(game, Color(.1f, .12f, .16f, 1f)) {
 
