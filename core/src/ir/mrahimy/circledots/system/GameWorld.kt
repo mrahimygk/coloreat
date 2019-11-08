@@ -1,13 +1,14 @@
-package ir.mrahimy.circledots
+package ir.mrahimy.circledots.system
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.MathUtils.*
+import com.badlogic.gdx.math.Vector2
 import ir.mrahimy.circledots.config.Constants
 import ir.mrahimy.circledots.gameobjects.CircleSprite
 import ir.mrahimy.circledots.gameobjects.LineSprite
 import ir.mrahimy.circledots.gameobjects.PointSprite
-import ir.mrahimy.circledots.screen.GameRenderer
+import ir.mrahimy.circledots.ktx.leftShift
 
 class GameWorld {
 
@@ -23,26 +24,23 @@ class GameWorld {
             Constants.WORLD_HEIGHT / 2f,
             90f), color = Color.GOLD)
     var points = listOf(
-            PointSprite(Circle(circleSprite.bounds.radius * cos(angles[20]) + circleSprite.bounds.x,
-                    circleSprite.bounds.radius * sin(angles[20]) + circleSprite.bounds.y, 2.5f)),
-            PointSprite(Circle(circleSprite.bounds.radius * cos(angles[50]) + circleSprite.bounds.x,
-                    circleSprite.bounds.radius * sin(angles[50]) + circleSprite.bounds.y, 2.5f)),
+            PointSprite(Circle(circleSprite.bounds.radius * cos(angles[300]) + circleSprite.bounds.x,
+                    circleSprite.bounds.radius * sin(angles[300]) + circleSprite.bounds.y, 2.5f)),
+            PointSprite(Circle(circleSprite.bounds.radius * cos(angles[500]) + circleSprite.bounds.x,
+                    circleSprite.bounds.radius * sin(angles[500]) + circleSprite.bounds.y, 2.5f)),
             PointSprite(Circle(circleSprite.bounds.radius * cos(angles[100]) + circleSprite.bounds.x,
                     circleSprite.bounds.radius * sin(angles[100]) + circleSprite.bounds.y, 2.5f)))
     var centerPoint = PointSprite(Circle(circleSprite.bounds.x, circleSprite.bounds.y, 2.5f), color = Color.CYAN)
 
-    val lineSprite = LineSprite(Circle())
+    val lineSprite = LineSprite(Vector2(), Vector2())
 
-    var i = 10f
-    var j = 30f
-    var linePoints = listOf(
-            Circle(i++, j++, i++),
-            Circle(i++, j++, i++),
-            Circle(i++, j++, i++),
-            Circle(i++, j++, i++),
-            Circle(i++, j++, i++),
-            Circle(i++, j++, i++)
-    )
+//    var linePoints = points.zip(arrayOf(centerPoint, centerPoint, centerPoint)) { point, center ->
+//        return@zip Pair(Vector2(point.bounds.x, point.bounds.y), Vector2(centerPoint.bounds.x, centerPoint.bounds.y))
+//    }
+
+    var linePoints = points.zip(points.leftShift(1)) { a, b ->
+        Pair(Vector2(a.bounds.x, a.bounds.y), Vector2(b.bounds.x, b.bounds.y))
+    }
 
     var state = WorldState.PLACING_CIRCLE
 
