@@ -1,8 +1,7 @@
-package ir.mrahimy.circledots
+package ir.mrahimy.circledots.system
 
 import com.badlogic.gdx.InputProcessor
 import com.badlogic.gdx.math.Vector3
-import ir.mrahimy.circledots.screen.GameRenderer
 
 class InputHandler(private val gameRenderer: GameRenderer) : InputProcessor {
 
