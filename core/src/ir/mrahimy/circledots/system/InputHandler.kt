@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.math.Vector2
 import ir.mrahimy.circledots.gameobjects.PointSprite
 import kotlin.math.acos
+import kotlin.math.atan2
 import kotlin.math.pow
 
 class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld: GameWorld) : InputProcessor {
@@ -34,10 +35,13 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
     private fun movePointToAngle(point: Circle, angle: Float) {
         point.set(Circle(center.radius * MathUtils.cos(angle) + center.x,
                 center.radius * MathUtils.sin(angle) + center.y, point.radius))
+        gameWorld.updateLines()
     }
 
     private fun findAngle(touchPos: Vector2): Float {
-        return findAngle(horizontalAxis, centerVector, touchPos)
+        val diffX = touchPos.x - center.x
+        val diffY = touchPos.y - center.y
+        return MathUtils.atan2(diffY, diffX)
     }
 
     private fun findAngle(p0: Vector2, p1: Vector2, p2: Vector2): Float {
