@@ -38,8 +38,15 @@ class GameWorld {
 //        return@zip Pair(Vector2(point.bounds.x, point.bounds.y), Vector2(centerPoint.bounds.x, centerPoint.bounds.y))
 //    }
 
-    var linePoints = points.zip(points.leftShift(1)) { a, b ->
-        Pair(Vector2(a.bounds.x, a.bounds.y), Vector2(b.bounds.x, b.bounds.y))
+    var linePoints = zipPoints()
+
+    private fun zipPoints() =
+            points.zip(points.leftShift(1)) { a, b ->
+                Pair(Vector2(a.bounds.x, a.bounds.y), Vector2(b.bounds.x, b.bounds.y))
+            }
+
+    fun updateLines() {
+        linePoints = zipPoints()
     }
 
     var state = WorldState.PLACING_CIRCLE
