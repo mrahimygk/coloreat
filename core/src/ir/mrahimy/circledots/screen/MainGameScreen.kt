@@ -20,7 +20,7 @@ class MainGameScreen(game: Xircle) : FitScreenImpl(game, Color(.1f, .12f, .16f, 
     init {
         gameRenderer = GameRenderer(game, world)
         world.gameRenderer = gameRenderer
-        inputHandler = InputHandler(gameRenderer)
+        inputHandler = InputHandler(gameRenderer, world)
         world.inputHandler = inputHandler
         inputMultiplexer = InputMultiplexer(inputHandler)
 //        hudRenderer = HudRenderer(holdGame, inputMultiplexer, world)
