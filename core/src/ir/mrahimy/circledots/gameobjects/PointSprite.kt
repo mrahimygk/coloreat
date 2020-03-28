@@ -10,15 +10,11 @@ class PointSprite(val bounds: Circle, private val color: Color = Color.RED) {
     private val pointSprite = Sprite(Assets().pointTexture())
 
     init {
-        pointSprite.setOriginCenter()
-        pointSprite.setPosition(
-                bounds.x - pointSprite.texture.width / 2,
-                bounds.y - pointSprite.texture.height / 2)
-
-        pointSprite.color = Color.WHITE.cpy().lerp(color, .5f)
+        update()
     }
 
     fun render(batch: SpriteBatch, deltaTime: Float) {
+        update()
         val s = 1f / ((pointSprite.texture.width / 2) / bounds.radius)
         pointSprite.setScale(s)
         pointSprite.setScale(s)
@@ -27,5 +23,14 @@ class PointSprite(val bounds: Circle, private val color: Color = Color.RED) {
         batch.begin()
         pointSprite.draw(batch)
         batch.end()
+    }
+
+    private fun update(){
+        pointSprite.setOriginCenter()
+        pointSprite.setPosition(
+                bounds.x - pointSprite.texture.width / 2,
+                bounds.y - pointSprite.texture.height / 2)
+
+        pointSprite.color = Color.WHITE.cpy().lerp(color, .5f)
     }
 }
