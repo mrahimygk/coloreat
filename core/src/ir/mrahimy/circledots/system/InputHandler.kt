@@ -5,9 +5,6 @@ import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.math.Vector2
 import ir.mrahimy.circledots.gameobjects.PointSprite
-import kotlin.math.acos
-import kotlin.math.pow
-import kotlin.math.sqrt
 
 class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld: GameWorld) : InputProcessor {
 
