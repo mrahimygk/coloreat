@@ -6,18 +6,14 @@ import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.math.Vector2
 import ir.mrahimy.circledots.gameobjects.PointSprite
 import kotlin.math.acos
-import kotlin.math.atan2
 import kotlin.math.pow
+import kotlin.math.sqrt
 
 class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld: GameWorld) : InputProcessor {
 
     private val touchPos: Vector2 = Vector2()
     private var movingPoint: PointSprite? = null
     private val center = gameWorld.circleSprite.bounds
-    private val centerVector = Vector2(gameWorld.circleSprite.bounds.x, gameWorld.circleSprite.bounds.y)
-    private val horizontalAxis =
-            Vector2(gameWorld.circleSprite.bounds.x + gameWorld.circleSprite.bounds.radius,
-                    gameWorld.circleSprite.bounds.y)
 
     override fun touchDown(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
         touchPos.set(screenX.toFloat(), screenY.toFloat())
@@ -43,15 +39,6 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
         val diffY = touchPos.y - center.y
         return MathUtils.atan2(diffY, diffX)
     }
-
-    private fun findAngle(p0: Vector2, p1: Vector2, p2: Vector2): Float {
-        val a = (p1.x.toDouble() - p0.x.toDouble()).pow(2.0) + Math.pow(p1.y.toDouble() - p0.y, 2.0)
-        val b = (p1.x - p2.x).pow(2) + Math.pow(p1.y.toDouble() - p2.y, 2.0)
-        val c = (p2.x - p0.x).pow(2) + Math.pow(p2.y.toDouble() - p0.y, 2.0)
-        val d = (a + b - c) / Math.sqrt(4.0 * a * b)
-        return acos(d).toFloat()
-    }
-
 
     override fun touchDragged(screenX: Int, screenY: Int, pointer: Int): Boolean {
         touchPos.set(screenX.toFloat(), screenY.toFloat())
