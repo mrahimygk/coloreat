@@ -32,8 +32,7 @@ class GameRenderer(private val game: Xircle, private val world: GameWorld) : Fit
 
     private fun renderLines(delta: Float) {
         world.linePoints.forEach {
-            world.lineSprite.start.set(it.first.x, it.first.y)
-            world.lineSprite.end.set(it.second.x, it.second.y)
+            world.lineSprite.update(it.first, it.second)
             world.lineSprite.render(batch, delta)
         }
     }
