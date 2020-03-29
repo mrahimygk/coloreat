@@ -11,14 +11,16 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
     private val touchPos: Vector2 = Vector2()
     private var movingPoint: Circle? = null
     private val center = gameWorld.circleSprite.bounds
+    private var pointOriginalRadius: Float = 0f
 
     override fun touchDown(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
         touchPos.set(screenX.toFloat(), screenY.toFloat())
         gameRenderer.viewport.unproject(touchPos)
         println(touchPos)
 
-        movingPoint = gameWorld.points.firstOrNull { Circle(touchPos.x, touchPos.y, 15f).contains(it.bounds) }?.bounds
+        movingPoint = gameWorld.points.firstOrNull { Circle(touchPos.x, touchPos.y, TOUCH_RADIUS).contains(it.bounds) }?.bounds
                 ?: return false
+        pointOriginalRadius = movingPoint?.radius ?: 0f
 
         return false
     }
@@ -26,12 +28,20 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
     override fun touchDragged(screenX: Int, screenY: Int, pointer: Int): Boolean {
         touchPos.set(screenX.toFloat(), screenY.toFloat())
         gameRenderer.viewport.unproject(touchPos)
-        movingPoint?.moveToAngle(center.findAngle(touchPos), center)
-        gameWorld.update()
+        movingPoint?.let { circle ->
+            circle.moveToAngle(center.findAngle(touchPos), center)
+            gameWorld.update(circle)
+        }
         return false
     }
 
     override fun touchUp(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
+        movingPoint?.let {
+            it.radius = pointOriginalRadius
+            gameWorld.update(null)
+        }
+        movingPoint = null
+
         return false
     }
 
@@ -55,4 +65,7 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
         return false
     }
 
+    companion object {
+        public const val TOUCH_RADIUS = 15f
+    }
 }
