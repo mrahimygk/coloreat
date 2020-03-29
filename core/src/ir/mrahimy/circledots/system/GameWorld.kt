@@ -50,7 +50,7 @@ class GameWorld {
         centerPoint.updateStatus(points
                 .map { it.bounds }
                 .map { Vector2(it.x, it.y) })
-        movingPoint?.radius = InputHandler.TOUCH_RADIUS
+        movingPoint?.radius = InputHandler.TOUCH_RADIUS/2f
     }
 
     private fun updateLines() {
