@@ -1,11 +1,11 @@
-package ir.mrahimy.circledots;
+package ir.mrahimy.coloreat;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 
-import ir.mrahimy.circledots.system.Xircle;
+import ir.mrahimy.coloreat.system.Xircle;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

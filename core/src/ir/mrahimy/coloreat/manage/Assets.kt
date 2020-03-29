@@ -1,4 +1,4 @@
-package ir.mrahimy.circledots.manage
+package ir.mrahimy.coloreat.manage
 
 import com.badlogic.gdx.assets.AssetDescriptor
 import com.badlogic.gdx.assets.AssetManager

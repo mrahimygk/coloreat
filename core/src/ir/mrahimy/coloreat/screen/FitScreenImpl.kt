@@ -1,4 +1,4 @@
-package ir.mrahimy.circledots.screen
+package ir.mrahimy.coloreat.screen
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Screen
@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.utils.viewport.FitViewport
-import ir.mrahimy.circledots.config.Constants
-import ir.mrahimy.circledots.system.Xircle
+import ir.mrahimy.coloreat.config.Constants
+import ir.mrahimy.coloreat.system.Xircle
 
 open class FitScreenImpl(private val game: Xircle,
                          private val clearColor: Color) : Screen {

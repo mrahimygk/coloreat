@@ -1,8 +1,8 @@
-package ir.mrahimy.circledots.desktop;
+package ir.mrahimy.coloreat.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import ir.mrahimy.circledots.system.Xircle;
+import ir.mrahimy.coloreat.system.Xircle;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

@@ -17,7 +17,7 @@ android {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "ir.mrahimy.circledots"
+        applicationId "ir.mrahimy.coloreat"
         minSdkVersion 9
         targetSdkVersion 29
         versionCode 1
@@ -86,5 +86,5 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'ir.mrahimy.circledots/ir.mrahimy.circledots.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'ir.mrahimy.coloreat/ir.mrahimy.coloreat.AndroidLauncher'
 }

@@ -1,10 +1,10 @@
-package ir.mrahimy.circledots.system
+package ir.mrahimy.coloreat.system
 
 import com.badlogic.gdx.InputProcessor
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.Vector2
-import ir.mrahimy.circledots.ktx.findAngle
-import ir.mrahimy.circledots.ktx.moveToAngle
+import ir.mrahimy.coloreat.ktx.findAngle
+import ir.mrahimy.coloreat.ktx.moveToAngle
 
 class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld: GameWorld) : InputProcessor {
 

@@ -1,4 +1,4 @@
-package ir.mrahimy.circledots.ktx
+package ir.mrahimy.coloreat.ktx
 
 fun <T> List<T>.leftShift(d: Int): List<T> {
     val newList = MutableList(this.size) { i -> this.elementAt(i) }

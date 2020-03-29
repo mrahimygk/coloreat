@@ -1,14 +1,14 @@
-package ir.mrahimy.circledots.system
+package ir.mrahimy.coloreat.system
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.MathUtils.*
 import com.badlogic.gdx.math.Vector2
-import ir.mrahimy.circledots.config.Constants
-import ir.mrahimy.circledots.gameobjects.CircleSprite
-import ir.mrahimy.circledots.gameobjects.LineSprite
-import ir.mrahimy.circledots.gameobjects.PointSprite
-import ir.mrahimy.circledots.ktx.leftShift
+import ir.mrahimy.coloreat.config.Constants
+import ir.mrahimy.coloreat.gameobjects.CircleSprite
+import ir.mrahimy.coloreat.gameobjects.LineSprite
+import ir.mrahimy.coloreat.gameobjects.PointSprite
+import ir.mrahimy.coloreat.ktx.leftShift
 
 class GameWorld {
 

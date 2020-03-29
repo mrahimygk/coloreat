@@ -1,4 +1,4 @@
-package ir.mrahimy.circledots.gameobjects
+package ir.mrahimy.coloreat.gameobjects
 
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.Sprite
@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Vector2
-import ir.mrahimy.circledots.manage.Assets
+import ir.mrahimy.coloreat.manage.Assets
 
 class PointSprite(val bounds: Circle, color: Color = Color.RED, private val isCenter: Boolean = false) {
     private val pointSprite = Sprite(Assets().pointTexture())

@@ -1,13 +1,13 @@
-package ir.mrahimy.circledots.screen
+package ir.mrahimy.coloreat.screen
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.InputMultiplexer
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.GL20
-import ir.mrahimy.circledots.system.GameRenderer
-import ir.mrahimy.circledots.system.GameWorld
-import ir.mrahimy.circledots.system.InputHandler
-import ir.mrahimy.circledots.system.Xircle
+import ir.mrahimy.coloreat.system.GameRenderer
+import ir.mrahimy.coloreat.system.GameWorld
+import ir.mrahimy.coloreat.system.InputHandler
+import ir.mrahimy.coloreat.system.Xircle
 
 class MainGameScreen(game: Xircle) : FitScreenImpl(game, Color(.1f, .12f, .16f, 1f)) {
 

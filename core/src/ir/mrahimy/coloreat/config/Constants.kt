@@ -1,4 +1,4 @@
-package ir.mrahimy.circledots.config
+package ir.mrahimy.coloreat.config
 
 object Constants {
     val GAME_W = 640

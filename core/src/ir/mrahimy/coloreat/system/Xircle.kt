@@ -1,7 +1,7 @@
-package ir.mrahimy.circledots.system
+package ir.mrahimy.coloreat.system
 
 import com.badlogic.gdx.Game
-import ir.mrahimy.circledots.screen.MainGameScreen
+import ir.mrahimy.coloreat.screen.MainGameScreen
 
 class Xircle : Game() {
 

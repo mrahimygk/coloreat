@@ -1,4 +1,4 @@
-package ir.mrahimy.circledots.ktx
+package ir.mrahimy.coloreat.ktx
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
