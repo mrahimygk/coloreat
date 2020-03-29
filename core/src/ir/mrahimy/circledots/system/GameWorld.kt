@@ -30,13 +30,13 @@ class GameWorld {
                     circleSprite.bounds.radius * sin(angles[500]) + circleSprite.bounds.y, 2.5f)),
             PointSprite(Circle(circleSprite.bounds.radius * cos(angles[100]) + circleSprite.bounds.x,
                     circleSprite.bounds.radius * sin(angles[100]) + circleSprite.bounds.y, 2.5f)))
-    var centerPoint = PointSprite(Circle(circleSprite.bounds.x, circleSprite.bounds.y, 2.5f), color = Color.CYAN)
+            .map {
+                it.color = Color.PURPLE
+                it
+            }
+    var centerPoint = PointSprite(Circle(circleSprite.bounds.x, circleSprite.bounds.y, 2.5f), isCenter = true)
 
     val lineSprite = LineSprite(Vector2(), Vector2())
-
-//    var linePoints = points.zip(arrayOf(centerPoint, centerPoint, centerPoint)) { point, center ->
-//        return@zip Pair(Vector2(point.bounds.x, point.bounds.y), Vector2(centerPoint.bounds.x, centerPoint.bounds.y))
-//    }
 
     var linePoints = zipPoints()
 
@@ -45,7 +45,14 @@ class GameWorld {
                 Pair(Vector2(a.bounds.x, a.bounds.y), Vector2(b.bounds.x, b.bounds.y))
             }
 
-    fun updateLines() {
+    fun update() {
+        updateLines()
+        centerPoint.updateStatus(points
+                .map { it.bounds }
+                .map { Vector2(it.x, it.y) })
+    }
+
+    private fun updateLines() {
         linePoints = zipPoints()
     }
 
