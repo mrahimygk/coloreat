@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.Intersector
-import com.badlogic.gdx.math.MathUtils
 import com.badlogic.gdx.math.Vector2
 import ir.mrahimy.circledots.manage.Assets
 
