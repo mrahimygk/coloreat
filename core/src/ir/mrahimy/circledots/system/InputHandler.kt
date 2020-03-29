@@ -27,7 +27,7 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
         touchPos.set(screenX.toFloat(), screenY.toFloat())
         gameRenderer.viewport.unproject(touchPos)
         movingPoint?.moveToAngle(center.findAngle(touchPos), center)
-        gameWorld.updateLines()
+        gameWorld.update()
         return false
     }
 
