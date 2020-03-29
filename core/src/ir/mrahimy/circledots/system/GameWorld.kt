@@ -45,11 +45,12 @@ class GameWorld {
                 Pair(Vector2(a.bounds.x, a.bounds.y), Vector2(b.bounds.x, b.bounds.y))
             }
 
-    fun update() {
+    fun update(movingPoint: Circle?) {
         updateLines()
         centerPoint.updateStatus(points
                 .map { it.bounds }
                 .map { Vector2(it.x, it.y) })
+        movingPoint?.radius = InputHandler.TOUCH_RADIUS
     }
 
     private fun updateLines() {
