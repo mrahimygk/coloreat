@@ -18,7 +18,13 @@ class GameWorld {
     val dots = mutableListOf<PointSprite>()
 
     fun update() {
-//        movingPoint?.radius = InputHandler.TOUCH_RADIUS / 2f
+        val dotsIterator = dots.iterator()
+        while (dotsIterator.hasNext()) {
+            val dot = dotsIterator.next()
+            if (player.bounds.contains(dot.bounds)) {
+                dotsIterator.remove()
+            }
+        }
     }
 
     var state = WorldState.PLACING_CIRCLE
