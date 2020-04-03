@@ -14,14 +14,15 @@ class GameRenderer(game: Xircle, private val world: GameWorld) : FitScreenImpl(g
 
     fun doRender(delta: Float) {
         super.render(0f)
-        renderCircle(delta)
+        renderPoints(delta)
         renderLines(delta)
         renderPlayer(delta)
     }
 
-    private fun renderCircle(delta: Float) {
-//        world.circleSprite.render(batch, delta)
-//        world.centerPoint.render(batch, delta)
+    private fun renderPoints(delta: Float) {
+        world.dots.forEach {
+            it.render(batch, delta)
+        }
     }
 
     private fun renderPlayer(delta: Float) {
