@@ -1,7 +1,11 @@
 package ir.mrahimy.coloreat.system
 
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.math.Circle
+import ir.mrahimy.coloreat.config.Constants
 import ir.mrahimy.coloreat.gameobjects.CircleSprite
+import ir.mrahimy.coloreat.gameobjects.PointSprite
+import kotlin.random.Random
 
 class GameWorld {
 
@@ -10,6 +14,8 @@ class GameWorld {
 
     var player = CircleSprite(Circle(100f,
             100f, 15f))
+
+    val dots = mutableListOf<PointSprite>()
 
     fun update() {
 //        movingPoint?.radius = InputHandler.TOUCH_RADIUS / 2f
@@ -21,23 +27,40 @@ class GameWorld {
         PLACING_CIRCLE, WAITING_FOR_INPUT, CALCULATING_SCORE, BACK_FROM_RESULTS
     }
 
+    var current = 0f
     fun update(delta: Float) {
         when (state) {
             WorldState.PLACING_CIRCLE -> {
-
-                //TODO: place and expand circleSprite
-                //TODO: place and put dots on circleSprite
+                current += delta
+                if (current > THRESHOLD) {
+                    current = 0f
+                    if (Random.nextInt(100) > 75) {
+                        val x = Random.nextInt(Constants.WORLD_WIDTH).toFloat()
+                        val y = Random.nextInt(Constants.WORLD_HEIGHT).toFloat()
+                        val point = PointSprite(Circle(x, y, (Random.nextInt(10) + 1).toFloat()), randomColors.random())
+                        dots.add(point)
+                    }
+                }
                 return
             }
 
             WorldState.WAITING_FOR_INPUT -> {
-                //TODO: show bottom table from hud
-
-
                 return
             }
         }
     }
 
-    //TODO: have functions for checking if the centre is inside the triangle
+    companion object {
+        const val THRESHOLD = 1.0f
+
+        val randomColors = listOf<Color>(
+                Color.BLUE,
+                Color.BROWN,
+                Color.YELLOW,
+                Color.GREEN,
+                Color.ORANGE,
+                Color.CYAN
+        )
+
+    }
 }
