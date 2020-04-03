@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Vector2
+import ir.mrahimy.coloreat.ktx.scale
 import ir.mrahimy.coloreat.manage.Assets
 
 class PointSprite(val bounds: Circle, color: Color = Color.RED) {
@@ -25,10 +26,7 @@ class PointSprite(val bounds: Circle, color: Color = Color.RED) {
 
     fun render(batch: SpriteBatch, deltaTime: Float) {
         update()
-        val s = 1f / ((pointSprite.texture.width / 2) / bounds.radius)
-        pointSprite.setScale(s)
-        pointSprite.setScale(s)
-        pointSprite.setScale(s)
+        pointSprite.scale(bounds)
 
         batch.begin()
         pointSprite.draw(batch)
