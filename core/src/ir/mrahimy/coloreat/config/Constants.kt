@@ -9,7 +9,7 @@ object Constants {
     val BALL_MIN_RADIUS = 30
     val ASPECT_RATIO = GAME_H.toFloat() / GAME_W.toFloat()
 
-    val GAME_TITLE = "Xircle"
+    val GAME_TITLE = "Coloreat"
     val HudBoxMargin = 5f
 
     val GRID_WIDTH_STEP = 23
