@@ -7,9 +7,9 @@ import com.badlogic.gdx.graphics.GL20
 import ir.mrahimy.coloreat.system.GameRenderer
 import ir.mrahimy.coloreat.system.GameWorld
 import ir.mrahimy.coloreat.system.InputHandler
-import ir.mrahimy.coloreat.system.Xircle
+import ir.mrahimy.coloreat.system.CircleDots
 
-class MainGameScreen(game: Xircle) : FitScreenImpl(game, Color(.1f, .12f, .16f, 1f)) {
+class MainGameScreen(game: CircleDots) : FitScreenImpl(game, Color(.1f, .12f, .16f, 1f)) {
 
     private val world: GameWorld = GameWorld()
     private val gameRenderer: GameRenderer

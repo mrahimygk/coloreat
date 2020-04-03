@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import ir.mrahimy.coloreat.screen.FitScreenImpl
 
-class GameRenderer(game: Xircle, private val world: GameWorld) : FitScreenImpl(game, Color(1.0f, 1.0f, 1.0f, 1f)) {
+class GameRenderer(game: CircleDots, private val world: GameWorld) : FitScreenImpl(game, Color(1.0f, 1.0f, 1.0f, 1f)) {
 
     private val batch = SpriteBatch()
 

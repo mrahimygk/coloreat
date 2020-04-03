@@ -7,9 +7,9 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.utils.viewport.FitViewport
 import ir.mrahimy.coloreat.config.Constants
-import ir.mrahimy.coloreat.system.Xircle
+import ir.mrahimy.coloreat.system.CircleDots
 
-open class FitScreenImpl(private val game: Xircle,
+open class FitScreenImpl(private val game: CircleDots,
                          private val clearColor: Color) : Screen {
     val camera: OrthographicCamera = OrthographicCamera()
     val viewport: FitViewport
