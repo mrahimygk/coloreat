@@ -27,6 +27,9 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
         movingPoint?.let { circle ->
             circle.set(touchPos.x, touchPos.y + circle.radius * (3f / 2f), circle.radius)
         }
+
+        gameWorld.update()
+
         return false
     }
 
