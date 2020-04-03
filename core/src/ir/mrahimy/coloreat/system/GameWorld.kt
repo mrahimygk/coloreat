@@ -23,6 +23,8 @@ class GameWorld {
             val dot = dotsIterator.next()
             if (player.bounds.contains(dot.bounds)) {
                 dotsIterator.remove()
+                //TODO: add color
+                player.color = dot.color
             }
         }
     }
@@ -41,8 +43,8 @@ class GameWorld {
                 if (current > THRESHOLD) {
                     current = 0f
                     if (Random.nextInt(100) > 75) {
-                        val x = Random.nextInt(Constants.WORLD_WIDTH).toFloat()
-                        val y = Random.nextInt(Constants.WORLD_HEIGHT).toFloat()
+                        val x = Random.nextInt(Constants.WORLD_WIDTH - 40).toFloat() + 20
+                        val y = Random.nextInt(Constants.WORLD_HEIGHT - 40).toFloat() + 20
                         val point = PointSprite(Circle(x, y, (Random.nextInt(10) + 1).toFloat()), randomColors.random())
                         dots.add(point)
                     }
