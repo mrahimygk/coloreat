@@ -1,4 +1,4 @@
-# circledots
-A game where you move 3 dots around a circle to make the triangle contain a dot.
+# coloreat
+A game where you move a circle around to catch colored dots. Each dot adds its color to your circle. The goal is to match your circle color with the world background.
 
 ## Screenshots
