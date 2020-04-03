@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Vector2
 import ir.mrahimy.coloreat.manage.Assets
 
-class PointSprite(val bounds: Circle, color: Color = Color.RED, private val isCenter: Boolean = false) {
+class PointSprite(val bounds: Circle, color: Color = Color.RED) {
     private val pointSprite = Sprite(Assets().pointTexture())
     private val inactiveColor = color
 
@@ -44,12 +44,11 @@ class PointSprite(val bounds: Circle, color: Color = Color.RED, private val isCe
     }
 
     fun updateStatus(points: List<Vector2>) {
-        if (!isCenter) return
-        if (Intersector.isPointInTriangle(Vector2(bounds.x, bounds.y),
+        color = if (Intersector.isPointInTriangle(Vector2(bounds.x, bounds.y),
                         points[0], points[1], points[2])) {
-            color = Color.GREEN//.cpy().lerp(color, .5f)
+            Color.GREEN//.cpy().lerp(color, .5f)
         } else {
-            color = inactiveColor
+            inactiveColor
         }
     }
 }
