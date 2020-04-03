@@ -10,18 +10,14 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
 
     private val touchPos: Vector2 = Vector2()
     private var movingPoint: Circle? = null
-    private val center = gameWorld.circleSprite.bounds
-    private var pointOriginalRadius: Float = 0f
+    private var pointOriginalInfo: Circle? = null
 
     override fun touchDown(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
         touchPos.set(screenX.toFloat(), screenY.toFloat())
         gameRenderer.viewport.unproject(touchPos)
-        println(touchPos)
-
-        movingPoint = gameWorld.points.firstOrNull { Circle(touchPos.x, touchPos.y, TOUCH_RADIUS).contains(it.bounds) }?.bounds
-                ?: return false
-        pointOriginalRadius = movingPoint?.radius ?: 0f
-
+        val touch = Circle(touchPos.x, touchPos.y, TOUCH_RADIUS)
+        movingPoint = if (gameWorld.player.bounds.contains(touch)) gameWorld.player.bounds else return false
+        pointOriginalInfo = movingPoint
         return false
     }
 
@@ -29,16 +25,14 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
         touchPos.set(screenX.toFloat(), screenY.toFloat())
         gameRenderer.viewport.unproject(touchPos)
         movingPoint?.let { circle ->
-            circle.moveToAngle(center.findAngle(touchPos), center)
-            gameWorld.update(circle)
+            circle.set(touchPos.x, touchPos.y + circle.radius * (3f / 2f), circle.radius)
         }
         return false
     }
 
     override fun touchUp(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
         movingPoint?.let {
-            it.radius = pointOriginalRadius
-            gameWorld.update(null)
+            gameWorld.update()
         }
         movingPoint = null
 
@@ -66,6 +60,6 @@ class InputHandler(private val gameRenderer: GameRenderer, private val gameWorld
     }
 
     companion object {
-        public const val TOUCH_RADIUS = 15f
+        public const val TOUCH_RADIUS = .01f
     }
 }
